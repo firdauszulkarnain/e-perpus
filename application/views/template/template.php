@@ -95,7 +95,7 @@
                                 </li>
                                 <li class="nav-header">MASTER DATA</li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url() ?>kategori" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? "active" : "" ?>">
+                                    <a href="<?= base_url() ?>anggota" class="nav-link <?= $this->uri->segment(1) == 'anggota' ? "active" : "" ?>">
                                         <i class="nav-icon fas fa-users"></i>
                                         <p>
                                             Data Anggota
@@ -103,18 +103,18 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url() ?>produk" class="nav-link <?= $this->uri->segment(1) == 'produk' ? "active" : "" ?>">
-                                        <i class="nav-icon fas fa-cookie-bite"></i>
+                                    <a href="<?= base_url() ?>buku" class="nav-link <?= $this->uri->segment(1) == 'buku' ? "active" : "" ?>">
+                                        <i class="nav-icon fas fa-book"></i>
                                         <p>
                                             Data Buku
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url() ?>pelanggan" class="nav-link <?= $this->uri->segment(1) == 'pelanggan' ? "active" : "" ?>">
+                                    <a href="<?= base_url() ?>kategori" class="nav-link <?= $this->uri->segment(1) == 'kategori' ? "active" : "" ?>">
                                         <i class="nav-icon fas fa-list-ul"></i>
                                         <p>
-                                            Jenis Buku
+                                            Kategori Buku
                                         </p>
                                     </a>
                                 </li>
