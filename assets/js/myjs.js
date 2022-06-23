@@ -4,7 +4,7 @@ $(document).ready(function() {
      $('#tambahStock').on('show.bs.modal', function(event) {
         var div = $(event.relatedTarget)
         var modal = $(this)
-        modal.find('#id_produk').attr("value", div.data('id_produk'));
+        modal.find('#id_buku').attr("value", div.data('id_buku'));
       });
 
     var x = $('#mytabel').DataTable({

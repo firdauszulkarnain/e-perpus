@@ -11,33 +11,65 @@ class Data_Model extends CI_Model
 
     public function ambil_buku()
     {
-        return $this->db->get('buku')->result_array();
+        $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
+        return $this->db->get('buku bk')->result_array();
     }
 
     public function tambah_buku()
     {
         $data = [
-            'nama_buku' => htmlspecialchars(trim($this->input->post('nama_buku'))),
+            'judul_buku' => htmlspecialchars(trim($this->input->post('judul_buku'))),
             'kategori_id' => $this->input->post('kategori'),
             'pengarang' => htmlspecialchars(trim($this->input->post('pengarang'))),
             'tahun_terbit' => htmlspecialchars(trim($this->input->post('tahun_terbit'))),
             'stock' => 0,
         ];
 
-        $this->db->insert('produk', $data);
+        $this->db->insert('buku', $data);
+    }
+
+    public function detail_buku($id_buku)
+    {
+        $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
+        return $this->db->get_where('buku bk', ['id_buku' => $id_buku])->row_array();
     }
 
     public function update_buku($id_buku)
     {
         $data = [
-            'nama_buku' => htmlspecialchars(trim($this->input->post('nama_buku'))),
+            'judul_buku' => htmlspecialchars(trim($this->input->post('judul_buku'))),
             'kategori_id' => $this->input->post('kategori'),
             'pengarang' => htmlspecialchars(trim($this->input->post('pengarang'))),
             'tahun_terbit' => htmlspecialchars(trim($this->input->post('tahun_terbit'))),
         ];
 
         $this->db->where('id_buku', $id_buku);
-        $this->db->update('produk', $data);
+        $this->db->update('buku', $data);
+    }
+
+    public function hapus_buku($id_buku)
+    {
+        $this->db->where('id_buku', $id_buku);
+        $this->db->delete('buku');
+    }
+
+    public function tambah_stock()
+    {
+        $id_buku = $this->input->post('id_buku');
+        $add_stock = $this->input->post('stock');
+
+        // Ambil Stock Saat ini
+        $data_buku = $this->db->get_where('buku', ['id_buku' => $id_buku])->row_array();
+        $stock_now = $data_buku['stock'];
+
+        // Jumlahkan Stock Baru
+        $jumlah_stock = $stock_now + $add_stock;
+        $data = [
+            'stock' => $jumlah_stock
+        ];
+
+        $this->db->where('id_buku', $id_buku);
+        $this->db->update('buku', $data);
     }
 
     // -------------------Kategori Start------------------\\
@@ -50,7 +82,6 @@ class Data_Model extends CI_Model
     {
         $data = [
             'nama_kategori' => htmlspecialchars(trim(ucwords($this->input->post('nama_kategori')))),
-            'foto_kategori' => 'default.png'
         ];
 
         $this->db->insert('kategori', $data);

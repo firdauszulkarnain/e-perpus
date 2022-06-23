@@ -67,7 +67,7 @@
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>admin/dashboard" class="brand-link">
                 <img src="<?= base_url() ?>assets/img/logo/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text">Jaje Bali Men Edik</span>
+                <span class="brand-text">E-Perpus</span>
             </a>
 
             <!-- Sidebar -->
