@@ -121,8 +121,8 @@
 
                                 <li class="nav-header mt-3">TRANSAKSI</li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? "active" : "" ?>">
-                                        <i class="nav-icon fas fa-box"></i>
+                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'peminjaman' ||  $this->uri->segment(1) == 'pengembalian'  ? "active" : "" ?>">
+                                        <i class="nav-icon fas fa-calculator"></i>
                                         <p>
                                             Transaksi
                                             <i class="right fas fa-angle-left"></i>
@@ -130,25 +130,25 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="<?= base_url() ?>pesanan" class="nav-link <?= $this->uri->segment(1) == 'pesanan'  && $this->uri->segment(2) == '' ? "active" : "" ?>">
+                                            <a href="<?= base_url() ?>peminjaman" class="nav-link <?= $this->uri->segment(1) == 'peminjaman'  && $this->uri->segment(2) == '' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Transaksi Peminjaman</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="<?= base_url() ?>pesanan/konfirmasi" class="nav-link <?= $this->uri->segment(1) == 'pesanan' && $this->uri->segment(2) == 'konfirmasi' ? "active" : "" ?>">
+                                            <a href="<?= base_url() ?>pengembalian" class="nav-link <?= $this->uri->segment(1) == 'pengembalian' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Transaksi Pengembalian</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-header mt-3">RESI</li>
+                                <li class="nav-header mt-3">LAPORAN</li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? "active" : "" ?>">
-                                        <i class="nav-icon fas fa-box"></i>
+                                        <i class="nav-icon fas fa-fw fa-file-alt"></i>
                                         <p>
-                                            RESI TRANSAKSI
+                                            Laporan
                                             <i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
@@ -156,13 +156,13 @@
                                         <li class="nav-item">
                                             <a href="<?= base_url() ?>pesanan" class="nav-link <?= $this->uri->segment(1) == 'pesanan'  && $this->uri->segment(2) == '' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p>Resi Peminjaman</p>
+                                                <p>Laporan Peminjaman</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="<?= base_url() ?>pesanan/konfirmasi" class="nav-link <?= $this->uri->segment(1) == 'pesanan' && $this->uri->segment(2) == 'konfirmasi' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p>Resi Pengembalian</p>
+                                                <p>Laporan Pengembalian</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -182,7 +182,7 @@
 
 
         <footer class="main-footer">
-            <strong>&copy <?= date('Y') ?> Jaje Bali Men Edik </strong>
+            <strong>&copy <?= date('Y') ?> Perpustakaan Indonesia </strong>
         </footer>
 
         <aside class="control-sidebar control-sidebar-dark"></aside>

@@ -14,7 +14,7 @@ class Kategori extends CI_Controller
     public function index()
     {
         // $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
-        $data['title'] = 'Data Kategori Produk';
+        $data['title'] = 'Data Kategori Buku';
         $data['kategori'] = $this->Data_Model->ambil_kategori();
         $this->template->load('template/template', 'admin/kategori/index', $data);
     }
