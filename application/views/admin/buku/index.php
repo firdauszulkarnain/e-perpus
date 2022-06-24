@@ -17,9 +17,9 @@
                         <thead>
                             <tr class="text-center">
                                 <th>No</th>
-                                <th>Username</th>
-                                <th>Nama Anggota</th>
-                                <th>Tanggal Daftar</th>
+                                <th>Kode Buku</th>
+                                <th>Judul Buku</th>
+                                <th>Kategori Buku</th>
                                 <th>Stok Buku</th>
                                 <th>Action</th>
                             </tr>
@@ -28,9 +28,9 @@
                             <?php foreach ($buku as $row) : ?>
                                 <tr class="text-center">
                                     <td></td>
+                                    <td class="text-capitalize"><?= $row['kode_buku'] ?></td>
                                     <td class="text-capitalize"><?= $row['judul_buku'] ?></td>
                                     <td class="text-capitalize"><?= $row['nama_kategori'] ?></td>
-                                    <td class="text-capitalize"><?= $row['pengarang'] ?></td>
                                     <td><?= $row['stock'] ?> pcs</td>
                                     <td>
 
@@ -40,8 +40,6 @@
                                                 <i class="fas fa-plus-circle"></i>
                                             </button>
                                         </a>
-                                        <!-- Button Detail -->
-                                        <a href="<?= base_url() ?>buku/detail/<?= $row['id_buku'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>
                                         <!-- Button Edit -->
                                         <a href="<?= base_url() ?>buku/update_buku/<?= $row['id_buku'] ?>" class="btn btn-sm btn-info text-light"><i class="fas fa-fw fa-edit"></i></a>
                                         <!-- Button Hapus -->

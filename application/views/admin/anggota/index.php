@@ -16,20 +16,22 @@
                     <table class="table table-striped table-bordered dt-responsive nowrap" id="mytabel" width="100%">
                         <thead>
                             <tr class="text-center">
-                                <th width="5%">No</th>
-                                <th width="40%">Username</th>
+                                <th>No</th>
+                                <th>Username</th>
                                 <th>Nama Anggota</th>
-                                <th width="12%">Tanggal Daftar</th>
-                                <th width="20%">Action</th>
+                                <th>Email</th>
+                                <th>Tanggal Daftar</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($anggota as $row) : ?>
                                 <tr class="text-center">
                                     <td></td>
-                                    <td class="text-capitalize"><?= $row['username'] ?></td>
-                                    <td class="text-capitalize"><?= $row['nama_lengkap'] ?></td>
-                                    <td class="text-capitalize"><?= $row['tanggal_daftar'] ?></td>
+                                    <td><?= $row['username'] ?></td>
+                                    <td><?= $row['nama_lengkap'] ?></td>
+                                    <td><?= $row['email'] ?></td>
+                                    <td><?= $row['tanggal_daftar'] ?></td>
                                     <td>
                                         <!-- Button Detail -->
                                         <a href="<?= base_url() ?>anggota/detail/<?= $row['id_anggota'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>

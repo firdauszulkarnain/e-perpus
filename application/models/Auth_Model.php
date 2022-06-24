@@ -17,4 +17,14 @@ class Auth_Model extends CI_Model
         ];
         $this->db->insert('anggota', $data);
     }
+
+    public function update_password($admin_id)
+    {
+        $data = [
+            "password" => htmlspecialchars(password_hash($this->input->post('password1'), PASSWORD_DEFAULT))
+        ];
+
+        $this->db->where('id_admin', $admin_id);
+        $this->db->update('admin', $data);
+    }
 }

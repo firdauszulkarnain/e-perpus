@@ -15,5 +15,7 @@ class Pengembalian extends CI_Controller
     public function index()
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['title'] = "Transaksi Pengembalian Buku";
+        $this->template->load('template/template', 'admin/transaksi/kembali', $data);
     }
 }

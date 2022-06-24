@@ -23,6 +23,7 @@ class Data_Model extends CI_Model
     public function tambah_buku()
     {
         $data = [
+            'kode_buku'  => htmlspecialchars(trim($this->input->post('kode_buku'))),
             'judul_buku' => htmlspecialchars(trim($this->input->post('judul_buku'))),
             'kategori_id' => $this->input->post('kategori'),
             'pengarang' => htmlspecialchars(trim($this->input->post('pengarang'))),

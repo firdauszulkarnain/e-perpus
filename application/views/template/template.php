@@ -80,7 +80,7 @@
                         <img src="<?= base_url() ?>assets/img/profile/Default.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="<?= base_url() ?>admin/profile" class="d-block text-capitalize <?= $this->uri->segment(2) == 'profile' ? "text-light" : "" ?>""><?= $admin['username'] ?></a>
+                        <a href="<?= base_url() ?>admin/profile" class="d-block text-capitalize <?= $this->uri->segment(2) == 'profile' ? "text-light" : "" ?>""><?= $admin['nama_lengkap'] ?></a>
                     </div>
                 </div>
 
