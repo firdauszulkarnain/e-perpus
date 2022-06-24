@@ -13,6 +13,7 @@ class Anggota extends CI_Controller
     }
     public function index()
     {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Data Anggota';
         $data['anggota'] = $this->Data_Model->ambil_anggota();
         $this->template->load('template/template', 'admin/anggota/index', $data);

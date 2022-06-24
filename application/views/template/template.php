@@ -28,6 +28,8 @@
 
     <!-- jQuery -->
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+    <!-- DATEPICKER -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
 
 
@@ -78,7 +80,7 @@
                         <img src="<?= base_url() ?>assets/img/profile/Default.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="<?= base_url() ?>admin/profile" class="d-block text-capitalize <?= $this->uri->segment(2) == 'profile' ? "text-light" : "" ?>"">TEST USER</a>
+                        <a href="<?= base_url() ?>admin/profile" class="d-block text-capitalize <?= $this->uri->segment(2) == 'profile' ? "text-light" : "" ?>""><?= $admin['username'] ?></a>
                     </div>
                 </div>
 
@@ -145,7 +147,7 @@
                                 </li>
                                 <li class="nav-header mt-3">LAPORAN</li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'pesanan' ? "active" : "" ?>">
+                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peminjaman' ? "active" : "" ?>">
                                         <i class="nav-icon fas fa-fw fa-file-alt"></i>
                                         <p>
                                             Laporan
@@ -154,13 +156,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="<?= base_url() ?>pesanan" class="nav-link <?= $this->uri->segment(1) == 'pesanan'  && $this->uri->segment(2) == '' ? "active" : "" ?>">
+                                            <a href="<?= base_url() ?>laporan/peminjaman" class="nav-link <?= $this->uri->segment(1) == 'laporan'  && $this->uri->segment(2) == 'peminjaman' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Laporan Peminjaman</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="<?= base_url() ?>pesanan/konfirmasi" class="nav-link <?= $this->uri->segment(1) == 'pesanan' && $this->uri->segment(2) == 'konfirmasi' ? "active" : "" ?>">
+                                            <a href="<?= base_url() ?>laporan/pengembalian" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'pengembalian' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Laporan Pengembalian</p>
                                             </a>
@@ -225,8 +227,7 @@
     <script src="<?= base_url('assets/js/select/defaults-id_ID.min.js') ?>"></script>
     <!-- JQUERY MASKING Money -->
     <script src="<?= base_url() ?>assets/js/jquery-mask/jquery.mask.js"></script>
-    <!-- DATEPICKER -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
     <!-- FileStyle -->
     <script type="text/javascript" src="<?= base_url() ?>assets/js/bootstrap-filestyle/bootstrap-filestyle.min.js"> </script>
     <!-- MYJS -->

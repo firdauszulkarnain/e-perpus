@@ -113,6 +113,19 @@
 </section>
 
 <script>
+    $("#tgl_kembali").change(function() {
+
+        var date1 = $("#tgl_pinjam").val();
+        var date2 = $(this).val();
+        var tgl1 = new Date(date1);
+        var tgl2 = new Date(date2);
+
+        var difference = tgl2 - tgl1;
+        var days = Math.ceil(difference / (1000 * 3600 * 24));
+
+        var totalharga = 20000 * days;
+        $("#total").val(totalharga);
+    });
     $("#anggota").change(function() {
         var id = $(this).val();
         var url = "<?= base_url('anggota/cari_anggota/') ?>";

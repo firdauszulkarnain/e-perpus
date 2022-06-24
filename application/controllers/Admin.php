@@ -19,7 +19,12 @@ class Admin extends CI_Controller
 
     public function dashboard()
     {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Dashboard';
+        $data['buku'] = $this->db->get('buku')->num_rows();
+        $data['anggota'] = $this->db->get('anggota')->num_rows();
+        $data['peminjaman'] = $this->db->get('peminjaman')->num_rows();
+        $data['kategori'] = $this->db->get('kategori')->num_rows();
         $this->template->load('template/template', 'admin/dashboard', $data);
     }
 }

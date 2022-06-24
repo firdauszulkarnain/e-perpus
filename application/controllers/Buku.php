@@ -3,8 +3,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Buku extends CI_Controller
 {
+    // Cek Session Login Admin
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('admin')) {
+            redirect('auth/login');
+        }
+    }
+
+
     public function index()
     {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Data Buku';
         $data['buku'] = $this->Data_Model->ambil_buku();
         $this->template->load('template/template', 'admin/buku/index', $data);
@@ -12,7 +23,7 @@ class Buku extends CI_Controller
 
     public function tambah_buku()
     {
-        // $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Tambah Data Buku';
         $data['kategori'] = $this->db->get('kategori')->result_array();
 
@@ -34,7 +45,7 @@ class Buku extends CI_Controller
 
     public function hapus_buku()
     {
-        // $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $id_buku = $this->input->post('id_buku');
         $this->Data_Model->hapus_buku($id_buku);
         $this->session->set_flashdata('pesan', 'Berhasil Hapus Buku');
@@ -43,7 +54,7 @@ class Buku extends CI_Controller
 
     public function update_buku($id_buku)
     {
-        // $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Update Buku';
         $data['buku'] = $this->Data_Model->detail_buku($id_buku);
         $data['kategori'] = $this->db->get('kategori')->result_array();
@@ -65,7 +76,7 @@ class Buku extends CI_Controller
 
     public function tambah_stock()
     {
-        // $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $this->form_validation->set_rules('stock', 'Stock', 'required', ['required' => "Stock Harus Diisi",]);
 
         if ($this->form_validation->run() == false) {
