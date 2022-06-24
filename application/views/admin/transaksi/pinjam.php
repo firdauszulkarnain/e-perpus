@@ -19,7 +19,7 @@
                         <label for="anggota">Anggota Perpus</label>
                         <select class="form-control text-capitalize selectpicker <?= (form_error('anggota')) ? 'border border-danger' : 'border border-secondary' ?>" id="anggota" name="anggota" data-size="4" data-live-search="true" title="Cari Anggota...">
                             <?php foreach ($anggota as $row) : ?>
-                                <option value="<?= $row['id_anggota'] ?>" <?= set_select('anggota', $row['id_anggota'], $row['nama_anggota']) ?> class="text-capitalize"><?= $row['nama_anggota'] ?></option>
+                                <option value="<?= $row['id_anggota'] ?>" <?= set_select('anggota', $row['id_anggota'], $row['nama_lengkap']) ?> class="text-capitalize"><?= $row['nama_lengkap'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <?= form_error('anggota', '<small class="form-text text-danger">', '</small>'); ?>
@@ -29,8 +29,8 @@
                         <input type="text" class="form-control" id="email" name="email" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="notelp_angggota">No. Telp Anggota</label>
-                        <input type="text" class="form-control" id="notelp_angggota" name="notelp_angggota" readonly>
+                        <label for="notelp">No. Telp Anggota</label>
+                        <input type="text" class="form-control" id="notelp" name="notelp" readonly>
                     </div>
                 </div>
             </div>
@@ -52,8 +52,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Kategori">Kategori Buku</label>
-                        <input type="text" class="form-control" id="Kategori" name="Kategori" readonly>
+                        <label for="kategori">Kategori Buku</label>
+                        <input type="text" class="form-control" id="kategori" name="kategori" readonly>
                     </div>
 
                     <div class="form-row">
@@ -111,3 +111,38 @@
         </div>
     </div>
 </section>
+
+<script>
+    $("#anggota").change(function() {
+        var id = $(this).val();
+        var url = "<?= base_url('anggota/cari_anggota/') ?>";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: "html",
+            data: "id_anggota=" + id,
+            success: function(result) {
+                let tmp = JSON.parse(result);
+                $("#email").val(tmp.email);
+                $("#notelp").val(tmp.notelp);
+            }
+        });
+    });
+
+    $("#buku").change(function() {
+        var id = $(this).val();
+        var url = "<?= base_url('buku/cari_buku/') ?>";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: "html",
+            data: "id_buku=" + id,
+            success: function(result) {
+                let tmp = JSON.parse(result);
+                $("#kategori").val(tmp.kategori);
+                $("#pengarang").val(tmp.pengarang);
+                $("#tahun_terbit").val(tmp.tahun_terbit);
+            }
+        });
+    });
+</script>

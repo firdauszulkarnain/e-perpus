@@ -76,4 +76,17 @@ class Buku extends CI_Controller
             redirect('buku');
         }
     }
+
+    public function cari_buku()
+    {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $id_buku = $this->input->post('id_buku');
+        $buku = $this->Data_Model->detail_buku($id_buku);
+        $response = array(
+            'kategori' => $buku['nama_kategori'],
+            'pengarang' => $buku['pengarang'],
+            'tahun_terbit' => $buku['tahun_terbit'],
+        );
+        echo json_encode($response);
+    }
 }

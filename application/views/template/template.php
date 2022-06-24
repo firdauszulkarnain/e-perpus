@@ -203,7 +203,7 @@
                 <div class="modal-body">Apakah anda yakin untuk keluar dari aplikasi?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger" href="<?= base_url() ?>auth_admin/logout">Logout</a>
+                    <a class="btn btn-danger" href="<?= base_url() ?>auth/logout">Logout</a>
                 </div>
             </div>
         </div>

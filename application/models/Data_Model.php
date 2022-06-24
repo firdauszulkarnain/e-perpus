@@ -8,12 +8,17 @@ class Data_Model extends CI_Model
         return $this->db->get('anggota')->result_array();
     }
 
+    public function detail_anggota($id_anggota)
+    {
+        return $this->db->get_where('anggota', ['id_anggota' => $id_anggota])->row_array();
+    }
 
     public function ambil_buku()
     {
         $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
         return $this->db->get('buku bk')->result_array();
     }
+
 
     public function tambah_buku()
     {

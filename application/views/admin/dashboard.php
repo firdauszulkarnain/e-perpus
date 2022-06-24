@@ -10,44 +10,65 @@
 
 <section class="content">
     <div class="row">
-        <!-- Info Produk -->
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-                <span class="info-box-icon bg-success elevation-1 px-5 py-n1"> <i class="fas fa-cookie-bite"></i></span>
-                <div class="info-box-content">
-                    <h5 class="info-box-text font-weight-lighter mt-2"><b>Jumlah Produk</b></h5>
-                    <h1 class="info-box-number font-weight-normal">
-                        00
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <!-- Info Pelanggan -->
-        <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1 px-5 py-n1"> <i class="fas fa-users"></i></span>
-                <div class="info-box-content">
-                    <h5 class="info-box-text font-weight-lighter mt-2"><b>Jumlah Pelanggan</b></h5>
-                    <h1 class="info-box-number font-weight-normal">
-                        00
-                    </h1>
-                </div>
-            </div>
-        </div>
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
+                <div class="info-box-content">
+                    <span class="info-box-text">CPU Traffic</span>
+                    <span class="info-box-number">
+                        10
+                        <small>%</small>
+                    </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Likes</span>
+                    <span class="info-box-number">41,410</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
         <div class="clearfix hidden-md-up"></div>
 
-        <!-- Info Pesanan -->
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1 px-5 py-n1"><i class="nav-icon fas fa-box"></i></span>
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
                 <div class="info-box-content">
-                    <h5 class="info-box-text font-weight-lighter mt-2"><b>Jumlah Pesanan</b></h5>
-                    <h1 class="info-box-number font-weight-normal">
-                        0
-                    </h1>
+                    <span class="info-box-text">Sales</span>
+                    <span class="info-box-number">760</span>
                 </div>
+                <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
         </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">New Members</span>
+                    <span class="info-box-number">2,000</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
     </div>
+    <!-- /.row -->
 </section>

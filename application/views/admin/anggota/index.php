@@ -28,7 +28,7 @@
                                 <tr class="text-center">
                                     <td></td>
                                     <td class="text-capitalize"><?= $row['username'] ?></td>
-                                    <td class="text-capitalize"><?= $row['nama_anggota'] ?></td>
+                                    <td class="text-capitalize"><?= $row['nama_lengkap'] ?></td>
                                     <td class="text-capitalize"><?= $row['tanggal_daftar'] ?></td>
                                     <td>
                                         <!-- Button Detail -->
