@@ -33,4 +33,26 @@ class Peminjaman extends CI_Controller
             redirect('laporan/peminjaman');
         }
     }
+
+    public function cari_peminjaman()
+    {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $nomor_transaksi = $this->input->post('id_peminjaman');
+        $peminjaman = $this->Transaksi_Model->detail_peminjaman($nomor_transaksi);
+        $response = array(
+            'username' => $peminjaman['username'],
+            'nama_lengkap' => $peminjaman['nama_lengkap'],
+            'email' => $peminjaman['email'],
+            'notelp' => $peminjaman['notelp'],
+            'kode_buku' => $peminjaman['kode_buku'],
+            'judul_buku' => $peminjaman['judul_buku'],
+            'pengarang' => $peminjaman['pengarang'],
+            'kategori' => $peminjaman['nama_kategori'],
+            'tahun_terbit' => $peminjaman['tahun_terbit'],
+            'tgl_pinjam' => $peminjaman['tanggal_pinjam'],
+            'tgl_kembali' => $peminjaman['tanggal_kembali'],
+            'total' => $peminjaman['total'],
+        );
+        echo json_encode($response);
+    }
 }
