@@ -31,4 +31,12 @@ class Transaksi_Model extends CI_Model
         $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
         return $this->db->get_where('peminjaman pm', ['nomor_transaksi' => $nomor_transaksi])->row_array();
     }
+
+    public function ambil_pengembalian()
+    {
+        $this->db->join('peminjaman pm', 'pm.id_peminjaman = pg.id_peminjaman');
+        $this->db->join('buku bk', 'bk.id_buku = pm.buku_id');
+        $this->db->join('anggota ag', 'ag.id_anggota = pm.anggota_id');
+        return $this->db->get('pengembalian pg')->result_array();
+    }
 }

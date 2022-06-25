@@ -147,7 +147,7 @@
                                 </li>
                                 <li class="nav-header mt-3">LAPORAN</li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'peminjaman' ? "active" : "" ?>">
+                                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'laporan' ? "active" : "" ?>">
                                         <i class="nav-icon fas fa-fw fa-file-alt"></i>
                                         <p>
                                             Laporan
@@ -156,7 +156,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="<?= base_url() ?>laporan/peminjaman" class="nav-link <?= $this->uri->segment(1) == 'laporan'  && $this->uri->segment(2) == 'peminjaman' ? "active" : "" ?>">
+                                            <a href="<?= base_url() ?>laporan/peminjaman" class="nav-link <?= $this->uri->segment(1) == 'laporan'  && $this->uri->segment(2) == 'peminjaman' || $this->uri->segment(2) == 'detail_peminjaman' ? "active" : "" ?>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Laporan Peminjaman</p>
                                             </a>

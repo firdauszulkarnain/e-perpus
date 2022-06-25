@@ -33,7 +33,7 @@
                                     <td><?= $row['tanggal_kembali'] ?></>
                                     <td>
                                         <!-- Button Detail -->
-                                        <a href="<?= base_url() ?>laporan/detail/<?= $row['nomor_transaksi'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>
+                                        <a href="<?= base_url() ?>laporan/detail_peminjaman/<?= $row['nomor_transaksi'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

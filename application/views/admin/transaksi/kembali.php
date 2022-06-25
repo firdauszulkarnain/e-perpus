@@ -97,7 +97,7 @@
                             <h5 class="font-weight-bolder">TOTAL BAYAR</h5>
                         </div>
                         <div class="col-lg-8">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" readonly></textarea>
+                            <textarea class="form-control font-weight-bolder" id="exampleFormControlTextarea1" rows="1" readonly style="text-align: right !important; font-size: 28px;">Rp. <?= number_format(50000, 0, ',', '.'); ?></textarea>
                         </div>
                     </div>
                     <button class="btn btn-info mt-5 float-right">Proses Transaksi</button>

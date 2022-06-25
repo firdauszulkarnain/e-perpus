@@ -125,7 +125,19 @@
         var days = Math.ceil(difference / (1000 * 3600 * 24));
 
         var totalharga = 20000 * days;
-        $("#total").val(totalharga);
+
+
+        var number_string = totalharga.toString(),
+            sisa = number_string.length % 3,
+            rupiah = number_string.substr(0, sisa),
+            ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        $("#total").val(rupiah);
     });
     $("#anggota").change(function() {
         var id = $(this).val();
