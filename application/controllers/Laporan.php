@@ -16,7 +16,7 @@ class Laporan extends CI_Controller
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Laporan Peminjaman Buku';
-        $data['peminjaman'] = $this->db->get('peminjaman')->result_array();
+        $data['peminjaman'] = $this->Transaksi_Model->ambil_peminjaman();
         $this->template->load('template/template', 'admin/laporan/pinjam', $data);
     }
 

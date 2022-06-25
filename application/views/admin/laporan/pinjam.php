@@ -23,6 +23,21 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <?php foreach ($peminjaman as $row) : ?>
+                                <tr class="text-center">
+                                    <td></td>
+                                    <td><?= $row['nomor_transaksi'] ?></td>
+                                    <td><?= $row['nama_lengkap'] ?></td>
+                                    <td><?= $row['tanggal_pinjam'] ?></td>
+                                    <td><?= $row['tanggal_kembali'] ?></>
+                                    <td>
+                                        <!-- Button Detail -->
+                                        <a href="<?= base_url() ?>laporan/detail/<?= $row['nomor_transaksi'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
