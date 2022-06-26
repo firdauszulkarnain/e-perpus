@@ -30,4 +30,12 @@ class Anggota extends CI_Controller
         );
         echo json_encode($response);
     }
+
+    public function detail($kode_anggota)
+    {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['title'] = 'Data Detail Anggota';
+        $data['anggota'] = $this->db->get_where('anggota', ['kode_anggota' => $kode_anggota])->row_array();
+        $this->template->load('template/template', 'admin/anggota/detail_anggota', $data);
+    }
 }

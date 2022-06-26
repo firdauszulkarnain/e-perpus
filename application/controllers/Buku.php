@@ -30,7 +30,7 @@ class Buku extends CI_Controller
         // FORM VALIDATION
         $this->form_validation->set_rules('judul_buku', 'Judul Buku', 'required|trim', ['required' => 'Nama Buku Tidak Boleh Kosong']);
         $this->form_validation->set_rules('kategori', 'Kategori', 'required', ['required' => 'kategori Tidak Boleh Kosong']);
-        $this->form_validation->set_rules('tahun_terbit', 'Tahun Terbit', 'required', ['required' => 'Tahun Terbit Tidak Boleh Kosong']);
+        $this->form_validation->set_rules('tahun_terbit', 'Tahun Terbit', 'required|numeric', ['required' => 'Tahun Terbit Tidak Boleh Kosong', 'numeric' => 'Tahun Terbit Hanya Angka']);
         $this->form_validation->set_rules('pengarang', 'Pengarang', 'required', ['required' => 'Pengarang Tidak Boleh Kosong']);
 
 
@@ -60,10 +60,9 @@ class Buku extends CI_Controller
         $data['kategori'] = $this->db->get('kategori')->result_array();
 
         // FORM VALIDATION
-        $this->form_validation->set_rules('kode_buku', 'Kode Buku', 'required|trim|is_unique[buku.kode_buku]', ['required' => 'Kode Buku Tidak Boleh Kosong', 'is_unique' => 'Kode Buku Sudah Ada']);
         $this->form_validation->set_rules('judul_buku', 'Judul Buku', 'required|trim', ['required' => 'Nama Buku Tidak Boleh Kosong']);
         $this->form_validation->set_rules('kategori', 'Kategori', 'required', ['required' => 'kategori Tidak Boleh Kosong']);
-        $this->form_validation->set_rules('tahun_terbit', 'Tahun Terbit', 'required', ['required' => 'Tahun Terbit Tidak Boleh Kosong']);
+        $this->form_validation->set_rules('tahun_terbit', 'Tahun Terbit', 'required|numeric', ['required' => 'Tahun Terbit Tidak Boleh Kosong', 'numeric' => 'Tahun Terbit Hanya Angka']);
         $this->form_validation->set_rules('pengarang', 'Pengarang', 'required', ['required' => 'Pengarang Tidak Boleh Kosong']);
 
         if ($this->form_validation->run() == false) {

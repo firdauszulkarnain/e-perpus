@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/adminlte.min.css">
     <!-- My Style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/auth.css">
-
-    <!-- Toaster Notif -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet">
 </head>
 
 <body style="background-image: url(../assets/img/bg/bg1.jpg); background-size: cover;">
@@ -78,17 +75,26 @@
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/adminlte.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/toastr/toastr.min.js"></script>
+    <!-- SWEETALERT2 -->
+    <script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function() {
 
             const flashData = $('.flash-data').data('flashdata');
             if (flashData) {
-                toastr.success(flashData);
+                Swal.fire({
+                    title: 'Success',
+                    text: flashData,
+                    icon: 'success'
+                });
             }
             const error = $('.error').data('error');
             if (error) {
-                toastr.error(error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: error,
+                    icon: 'error'
+                });
             }
         });
     </script>

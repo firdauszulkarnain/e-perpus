@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/adminlte.min.css">
-    <!-- SELECTPICKER -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-select/bootstrap-select.css">
     <!-- My Style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/auth.css">
 </head>
@@ -81,27 +79,7 @@
 
         <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
         <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- SELECT PICKER -->
-        <script src="<?= base_url() ?>assets/js/bootstrap-select/bootstrap-select.js"></script>
-        <script src="<?= base_url('assets/js/select/defaults-id_ID.min.js') ?>"></script>
         <script src="<?= base_url() ?>assets/js/adminlte.min.js"></script>
-
-        <script>
-            $("#kabupaten").change(function() {
-                var id = $(this).val();
-                var url = "<?= base_url('auth/cari_kecamatan/') ?>";
-                $.ajax({
-                    type: "post",
-                    url: url,
-                    dataType: "html",
-                    data: "id_kabupaten=" + id,
-                    success: function(msg) {
-                        $("#kecamatan").html(msg).selectpicker('refresh');
-                        $("#kecamatan").selectpicker('refresh');
-                    }
-                });
-            });
-        </script>
 </body>
 
 </html>
