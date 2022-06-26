@@ -25,7 +25,7 @@
                     <div class="pt-5 pb-3 px-4">
                         <div class=" card-body p-0">
                             <div class="text-center">
-                                <h1 class="h4 text-info font-weight-bolder mt-1"> LOGIN EDELWIS BOOK</h1>
+                                <h1 class="h4 text-info font-weight-bolder mt-1"> LOGIN EDELWEIS BOOK</h1>
                                 <hr class="mb-4 garis">
                             </div>
                             <div class="error" data-error="<?= $this->session->flashdata('error'); ?>"></div>
