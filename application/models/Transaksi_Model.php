@@ -38,7 +38,8 @@ class Transaksi_Model extends CI_Model
             'anggota_id' => $this->input->post('anggota'),
             'tanggal_pinjam' => $this->input->post('tgl_pinjam'),
             'tanggal_kembali' => $this->input->post('tgl_kembali'),
-            'total' => $this->input->post('total')
+            'total' => $this->input->post('total'),
+            'status' => 'pinjam',
         ];
 
         $this->db->insert('peminjaman', $data);
@@ -46,8 +47,6 @@ class Transaksi_Model extends CI_Model
 
     public function proses_pengembalian()
     {
-
-
         $pinjam = $this->db->get_where('peminjaman', ['nomor_transaksi' => $this->input->post('nomor_transaksi')])->row_array();
         $id_peminjaman = $pinjam['id_peminjaman'];
         $id_buku = $pinjam['buku_id'];
@@ -61,6 +60,12 @@ class Transaksi_Model extends CI_Model
         $this->db->where('id_buku', $id_buku);
         $this->db->update('buku', $stock);
 
+        $status = [
+            'status' => 'kembali'
+        ];
+
+        $this->db->where('id_peminjaman', $id_peminjaman);
+        $this->db->update('peminjaman', $status);
 
         $data = [
             'id_peminjaman' => $id_peminjaman,
@@ -77,7 +82,16 @@ class Transaksi_Model extends CI_Model
     {
         $this->db->join('buku bk', 'bk.id_buku = pm.buku_id');
         $this->db->join('anggota ag', 'ag.id_anggota = pm.anggota_id');
+        $this->db->where('pm.status', 'pinjam');
         return $this->db->get('peminjaman pm')->result_array();
+    }
+
+    public function ambil_pengembalian()
+    {
+        $this->db->join('peminjaman pm', 'pm.id_peminjaman = pg.id_peminjaman');
+        $this->db->join('buku bk', 'bk.id_buku = pm.buku_id');
+        $this->db->join('anggota ag', 'ag.id_anggota = pm.anggota_id');
+        return $this->db->get('pengembalian pg')->result_array();
     }
 
     public function detail_peminjaman($nomor_transaksi)
@@ -88,11 +102,12 @@ class Transaksi_Model extends CI_Model
         return $this->db->get_where('peminjaman pm', ['nomor_transaksi' => $nomor_transaksi])->row_array();
     }
 
-    public function ambil_pengembalian()
+    public function detail_pengembalian($nomor_transaksi)
     {
         $this->db->join('peminjaman pm', 'pm.id_peminjaman = pg.id_peminjaman');
         $this->db->join('buku bk', 'bk.id_buku = pm.buku_id');
         $this->db->join('anggota ag', 'ag.id_anggota = pm.anggota_id');
-        return $this->db->get('pengembalian pg')->result_array();
+        $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
+        return $this->db->get_where('pengembalian pg', ['nomor_transaksi' => $nomor_transaksi])->row_array();
     }
 }
