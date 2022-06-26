@@ -84,7 +84,7 @@
                             <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="total">Total Bayar</label>
+                            <label for="total">Total</label>
                             <input type="text" class="form-control" id="total" name="total" readonly>
                         </div>
                         <div class="form-group col-md-4">
@@ -97,7 +97,7 @@
                             <h5 class="font-weight-bolder">TOTAL BAYAR</h5>
                         </div>
                         <div class="col-lg-8">
-                            <textarea class="form-control font-weight-bolder" id="exampleFormControlTextarea1" rows="1" readonly style="text-align: right !important; font-size: 28px;">Rp. <?= number_format(50000, 0, ',', '.'); ?></textarea>
+                            <textarea class="form-control font-weight-bolder" id="total_bayar" rows="1" readonly style="text-align: right !important; font-size: 28px;"></textarea>
                         </div>
                     </div>
                     <button class="btn btn-info mt-5 float-right">Proses Transaksi</button>
@@ -228,5 +228,35 @@
                 $("#total").val(tmp.total);
             }
         });
+    });
+
+    $("#tanggal_kembali").change(function() {
+
+        var total = $("#total").val();
+
+        var date1 = $("#tenggat").val();
+        var date2 = $(this).val();
+        var tgl1 = new Date(date1);
+        var tgl2 = new Date(date2);
+
+        var difference = tgl2 - tgl1;
+        var days = Math.ceil(difference / (1000 * 3600 * 24));
+
+        var totalharga = 10000 * days;
+
+        var totalBayar = parseInt(totalharga) + totalharga;
+
+        var number_string = totalBayar.toString(),
+            sisa = number_string.length % 3,
+            rupiah = number_string.substr(0, sisa),
+            ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        $("#denda").val(totalharga);
+        $("#total_bayar").html(rupiah);
     });
 </script>

@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='<?= base_url(); ?>/assets/img/icon/favicon.ico' rel='shortcut icon'>
     <title><?= $title; ?></title>
 
     <!-- Google Font: Source Montserrat -->
@@ -29,9 +28,7 @@
                     <div class="pt-5 pb-3 px-4">
                         <div class=" card-body p-0">
                             <div class="text-center">
-
-                                <h1 class="h4 text-success font-weight-bolder mb-4 mt-4"> LOGIN EDELWIS</h1>
-
+                                <h1 class="h4 text-info font-weight-bolder mt-3"> LOGIN EDELWIS</h1>
                                 <hr class="mb-4 garis">
                             </div>
                             <div class="error" data-error="<?= $this->session->flashdata('error'); ?>"></div>
@@ -39,7 +36,7 @@
                                 <div class="mb-3">
                                     <div class="input-group <?= (form_error('username')) ? 'is-invalid' : '' ?>">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text bg-light" style="color: #218838 !important;"> <span class="fas fa-fw fa-user"></span></span>
+                                            <span class="input-group-text bg-light"> <span class="fas fa-fw fa-user"></span></span>
                                         </div>
                                         <input type="text" class="form-control <?= (form_error('username')) ? 'is-invalid' : '' ?>" placeholder="Username" value="<?= set_value('username') ?>" name="username" autocomplete="off" autofocus>
                                     </div>
@@ -52,7 +49,7 @@
                                 <div class="mb-4">
                                     <div class="input-group <?= (form_error('password')) ? 'is-invalid' : '' ?>">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text bg-light" style="color: #218838 !important;"> <span class="fas fa-fw fa-lock"></span></span>
+                                            <span class="input-group-text bg-light"> <span class="fas fa-fw fa-lock"></span></span>
                                         </div>
                                         <input type="password" class="form-control <?= (form_error('password')) ? 'is-invalid' : '' ?>" placeholder="Password" name="password" autocomplete="off">
 
@@ -61,10 +58,10 @@
                                         <?= form_error('password') ?>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-block mt-4">Masuk</button>
+                                <button type="submit" class="btn btn-info btn-block mt-4">Masuk</button>
                                 <hr>
                                 <div class="text-center mt-4">
-                                    <p class="small">Belum Punya Akun? Silahkan <a href="<?= base_url('auth/register') ?>" class="text-decoration-none text-success"><strong> REGISTRASI</strong></a></p>
+                                    <p class="small">Belum Punya Akun? Silahkan <a href="<?= base_url('auth/register') ?>" class="text-decoration-none text-info"><strong> REGISTRASI</strong></a></p>
                                 </div>
                             </form>
                         </div>

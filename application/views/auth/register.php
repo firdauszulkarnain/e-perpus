@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='<?= base_url(); ?>/assets/img/icon/favicon.ico' rel='shortcut icon'>
     <title><?= $title; ?></title>
 
     <!-- Google Font: Source Montserrat -->
@@ -28,7 +27,7 @@
                     <div class="p-5">
                         <div class=" card-body p-0">
 
-                            <h1 class="h4 text-success font-weight-bolder mb-4 mt-3 text-center">REGISTER JAJE BALI</h1>
+                            <h1 class="h4 text-info font-weight-bolder mb-4 mt-3 text-center">REGISTER JAJE BALI</h1>
                             <hr class="garis">
 
                             <form method="POST" action="">
@@ -37,7 +36,7 @@
                                     <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control text-capitalize  <?= (form_error('username')) ? 'border border-danger' : 'border border-secondary' ?>" id="username" placeholder="Username" name="username" autocomplete="off" value="<?= set_value('username');  ?>">
+                                    <input type="text" class="form-control  <?= (form_error('username')) ? 'border border-danger' : 'border border-secondary' ?>" id="username" placeholder="Username" name="username" autocomplete="off" value="<?= set_value('username');  ?>">
                                     <?= form_error('username', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
@@ -62,13 +61,13 @@
                                         <?= form_error('password2', '<small class="form-text text-danger">', '</small>'); ?>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-user btn-block">
+                                <button type="submit" class="btn btn-info btn-user btn-block">
                                     Submit
                                 </button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <p class="small text-dark">Sudah Punya Akun? Silahkan <a href="<?= base_url('auth/login') ?>" class="text-decoration-none text-success"><strong> LOGIN</strong></a></p>
+                                <p class="small text-dark">Sudah Punya Akun? Silahkan <a href="<?= base_url('auth/login') ?>" class="text-decoration-none text-info"><strong> LOGIN</strong></a></p>
                             </div>
                         </div>
                     </div>

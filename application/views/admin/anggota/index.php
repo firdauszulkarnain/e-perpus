@@ -28,10 +28,10 @@
                             <?php foreach ($anggota as $row) : ?>
                                 <tr class="text-center">
                                     <td></td>
-                                    <tdz><?= $row['username'] ?></tdz>
-                                    <tdz><?= $row['nama_lengkap'] ?></tdz>
-                                    <tdz><?= $row['email'] ?></tdz>
-                                    <tdz><?= $row['tanggal_daftar'] ?></tdz>
+                                    <td><?= $row['username'] ?></td>
+                                    <td><?= $row['nama_lengkap'] ?></td>
+                                    <td><?= $row['email'] ?></td>
+                                    <td><?= $row['tanggal_daftar'] ?></td>
                                     <td>
                                         <!-- Button Detail -->
                                         <a href="<?= base_url() ?>anggota/detail/<?= $row['id_anggota'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>

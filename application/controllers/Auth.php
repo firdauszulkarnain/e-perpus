@@ -76,7 +76,12 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('admin');
+        if ($this->session->userdata('user')) {
+            $this->session->unset_userdata('user');
+        } elseif ($this->session->unset_userdata('admin')) {
+            $this->session->unset_userdata('admin');
+        }
+
         $this->session->set_flashdata('pesan', 'Logout Aplikasi');
         redirect('auth/login');
     }
@@ -85,7 +90,7 @@ class Auth extends CI_Controller
     public function register()
     {
         if ($this->session->userdata('user')) {
-            redirect('beranda');
+            redirect('user/dashboard');
         }
         $data['title'] = 'Register Edelwis';
         // Form Validation
