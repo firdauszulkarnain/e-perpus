@@ -19,16 +19,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body style="background-image: url(../assets/img/bg/bg1.jpg); background-size: cover;">
     <div class="container">
         <div class="row mt-5 d-flex justify-content-center">
-            <div class="login-box mt-5">
+            <div class="login-box mt-5" style="opacity: 0.95 !important;">
                 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
                 <div class="card">
                     <div class="pt-5 pb-3 px-4">
                         <div class=" card-body p-0">
                             <div class="text-center">
-                                <h1 class="h4 text-info font-weight-bolder mt-3"> LOGIN EDELWIS</h1>
+                                <h1 class="h4 text-info font-weight-bolder mt-1"> LOGIN EDELWIS BOOK</h1>
                                 <hr class="mb-4 garis">
                             </div>
                             <div class="error" data-error="<?= $this->session->flashdata('error'); ?>"></div>

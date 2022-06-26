@@ -27,7 +27,7 @@
                                     <td class="text-capitalize"><?= $row['judul_buku'] ?></td>
                                     <td class="text-capitalize"><?= $row['nama_kategori'] ?></td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-success">Lihat Detail</a>
+                                        <a href="<?= base_url() ?>user/detail_buku/<?= $row['kode_buku'] ?>" class="btn btn-sm btn-success">Lihat Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

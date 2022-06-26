@@ -97,7 +97,7 @@
                                 </li>
 
                                 <li class="nav-item mt-3">
-                                    <a href="<?= base_url() ?>user/buku" class="nav-link <?= $this->uri->segment(2) == 'buku' ? "active" : "" ?>">
+                                    <a href="<?= base_url() ?>user/buku" class="nav-link <?= $this->uri->segment(2) == 'buku' || $this->uri->segment(2) == 'detail_buku'  ? "active" : "" ?>">
                                         <i class="nav-icon fas fa-book"></i>
                                         <p>
                                             Data Buku

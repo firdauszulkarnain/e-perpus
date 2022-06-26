@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/auth.css">
 </head>
 
-<body>
+<body style="background-image: url(../assets/img/bg/bg1.jpg); background-size: cover;">
     <div class="container mb-5">
         <div class="row mt-5 d-flex justify-content-center">
             <div class="col-lg-6">
                 <!-- <div class="login-box mt-5"> -->
-                <div class="card">
+                <div class="card " style="opacity: 0.95 !important;">
                     <div class="p-5">
                         <div class=" card-body p-0">
 

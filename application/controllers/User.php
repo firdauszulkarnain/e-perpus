@@ -17,4 +17,12 @@ class User extends CI_Controller
         $data['buku'] = $this->Data_Model->ambil_buku();
         $this->template->load('template/user_template', 'user/buku', $data);
     }
+
+    public function detail_buku($kode_buku)
+    {
+        $data['user'] = $this->db->get_where('anggota', ['username' => $this->session->userdata('user')])->row_array();
+        $data['title'] = 'Detail Buku Taman Baca Edelweis';
+        $data['buku'] = $this->Data_Model->ambil_detail_buku($kode_buku);
+        $this->template->load('template/user_template', 'user/detail_buku', $data);
+    }
 }
