@@ -54,7 +54,7 @@ $(document).ready(function() {
     if (flashData) {
         Swal.fire({
         title: 'Success',
-        text: 'Berhasil ' + flashData,
+        text: flashData,
         icon: 'success'
         });
     }

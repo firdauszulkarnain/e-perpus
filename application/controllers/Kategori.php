@@ -23,7 +23,7 @@ class Kategori extends CI_Controller
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $this->Data_Model->tambah_kategori();
-        $this->session->set_flashdata('pesan', 'Tambah Kategori');
+        $this->session->set_flashdata('pesan', 'Berhasil Tambah Kategori');
         redirect('kategori');
     }
 
@@ -31,7 +31,7 @@ class Kategori extends CI_Controller
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $this->Data_Model->update_kategori();
-        $this->session->set_flashdata('pesan', 'Update Kategori');
+        $this->session->set_flashdata('pesan', 'Behasil Update Kategori');
         redirect('kategori');
     }
 
@@ -39,7 +39,7 @@ class Kategori extends CI_Controller
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $this->Data_Model->hapus_kategori();
-        $this->session->set_flashdata('pesan', 'Hapus Kategori');
+        $this->session->set_flashdata('pesan', 'Barhasil Hapus Kategori');
         redirect('kategori');
     }
 }

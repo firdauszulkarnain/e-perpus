@@ -28,7 +28,7 @@ class Pengembalian extends CI_Controller
         } else {
             $this->Transaksi_Model->proses_pengembalian();
             $this->session->set_flashdata('pesan', 'Berhasil Proses Pengembalian Buku');
-            redirect('laporan/peminjaman');
+            redirect('laporan/pengembalian');
         }
     }
 }

@@ -69,7 +69,7 @@ class Buku extends CI_Controller
             $this->template->load('template/template', 'admin/buku/update_buku', $data);
         } else {
             $this->Data_Model->update_buku($id_buku);
-            $this->session->set_flashdata('pesan', 'Berhasil Tambah Data Buku');
+            $this->session->set_flashdata('pesan', 'Berhasil Update Data Buku');
             redirect('buku');
         }
     }
@@ -83,7 +83,7 @@ class Buku extends CI_Controller
             redirect('buku');
         } else {
             $this->Data_Model->tambah_stock();
-            $this->session->set_flashdata('pesan', 'Tambah Stock Buku');
+            $this->session->set_flashdata('pesan', 'Berhasil Tambah Stock Buku');
             redirect('buku');
         }
     }
