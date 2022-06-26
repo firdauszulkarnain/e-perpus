@@ -18,6 +18,7 @@ class Peminjaman extends CI_Controller
         $data['title'] = 'Transaksi Peminjaman Buku';
         $data['anggota'] = $this->db->get('anggota')->result_array();
         $data['buku'] = $this->db->get('buku')->result_array();
+        $data['nomor_transaksi'] = $this->Transaksi_Model->nomor_transaksi();
 
         // FORM VALIDATION
         $this->form_validation->set_rules('buku', 'Buku', 'required|trim', ['required' => 'Buku Tidak Boleh Kosong']);
@@ -40,6 +41,7 @@ class Peminjaman extends CI_Controller
         $nomor_transaksi = $this->input->post('id_peminjaman');
         $peminjaman = $this->Transaksi_Model->detail_peminjaman($nomor_transaksi);
         $response = array(
+            'kode_anggota' => $peminjaman['kode_anggota'],
             'username' => $peminjaman['username'],
             'nama_lengkap' => $peminjaman['nama_lengkap'],
             'email' => $peminjaman['email'],

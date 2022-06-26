@@ -20,14 +20,13 @@ class Pengembalian extends CI_Controller
 
         // FORM VALIDATION
         $this->form_validation->set_rules('nomor_transaksi', 'Nomor Transaksi', 'required|trim', ['required' => 'Nomor Transaksi Tidak Boleh Kosong']);
-        // $this->form_validation->set_rules('anggota', 'Anggota', 'required|trim', ['required' => 'Anggota Tidak Boleh Kosong']);
-        // $this->form_validation->set_rules('tgl_pinjam', 'Tanggal Pinjam', 'required|trim', ['required' => 'Tanggal Pinjam Tidak Boleh Kosong']);
-        // $this->form_validation->set_rules('tgl_kembali', 'Tanggal Kembali', 'required|trim', ['required' => 'Tanggal Kembali Tidak Boleh Kosong']);
+        $this->form_validation->set_rules('tanggal_kembali', 'Tanggal Kembali', 'required|trim', ['required' => 'Tanggal Kembali Tidak Boleh Kosong']);
+
 
         if ($this->form_validation->run() == false) {
             $this->template->load('template/template', 'admin/transaksi/kembali', $data);
         } else {
-            $this->Transaksi_Model->proses_peminjaman();
+            $this->Transaksi_Model->proses_pengembalian();
             $this->session->set_flashdata('pesan', 'Berhasil Proses Pengembalian Buku');
             redirect('laporan/peminjaman');
         }

@@ -7,104 +7,106 @@
 </section>
 
 <section class="content">
+    <form action="" method="POST">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-header bg-info font-weight-bolder">
+                        NOMOR TRANSAKSI
+                    </div>
+                    <div class="card-body">
 
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="card">
-                <div class="card-header bg-info font-weight-bolder">
-                    NOMOR TRANSAKSI
+                        <div class="form-group">
+                            <label for="nomor_transaksi">No Transaksi Peminjaman</label>
+                            <select class="form-control text-capitalize selectpicker <?= (form_error('nomor_transaksi')) ? 'border border-danger' : 'border border-secondary' ?>" id="nomor_transaksi" name="nomor_transaksi" data-size="4" data-live-search="true" title="Cari Nomor Transaksi Peminjaman...">
+                                <?php foreach ($peminjaman as $row) : ?>
+                                    <option value="<?= $row['nomor_transaksi'] ?>"><?= $row['nomor_transaksi'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <?= form_error('nomor_transaksi', '<small class="form-text text-danger">', '</small>'); ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="nomor_peminjaman">No Transaksi Peminjaman</label>
-                        <select class="form-control text-capitalize selectpicker <?= (form_error('nomor_peminjaman')) ? 'border border-danger' : 'border border-secondary' ?>" id="nomor_peminjaman" name="nomor_peminjaman" data-size="4" data-live-search="true" title="Cari Nomor Transaksi Peminjaman...">
-                            <?php foreach ($peminjaman as $row) : ?>
-                                <option value="<?= $row['nomor_transaksi'] ?>"><?= $row['nomor_transaksi'] ?></option>
-                            <?php endforeach ?>
-                        </select>
-                        <?= form_error('nomor_transaksi', '<small class="form-text text-danger">', '</small>'); ?>
+                <div class="card">
+                    <div class="card-header bg-info font-weight-bolder">
+                        DETAIL INFORMASI
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="anggota_peminjam">Anggota Peminjam</label>
+                                    <input type="text" class="form-control" id="anggota_peminjam" name="anggota_peminjam" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 mt-3">
+                                <!-- Button Detail -->
+                                <button type="button" class="btn mt-3 btn-success text-light btn-block" data-toggle="modal" data-target="#detail_anggota">
+                                    <i class="fas fa-fw fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="buku">Buku Pinjam</label>
+                                    <input type="text" class="form-control" id="buku" name="buku" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 mt-3">
+                                <!-- Button Detail -->
+                                <button type="button" class="btn mt-3 btn-success text-light btn-block" data-toggle="modal" data-target="#detail_buku">
+                                    <i class="fas fa-fw fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header bg-info font-weight-bolder">
-                    DETAIL INFORMASI
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="anggota_peminjam">Anggota Peminjam</label>
-                                <input type="text" class="form-control" id="anggota_peminjam" name="anggota_peminjam" readonly>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 mt-3">
-                            <!-- Button Detail -->
-                            <button type="button" class="btn mt-3 btn-success text-light btn-block" data-toggle="modal" data-target="#detail_anggota">
-                                <i class="fas fa-fw fa-eye"></i>
-                            </button>
-                        </div>
+            <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-header bg-info font-weight-bolder">
+                        TRANSAKSI PENGEMBALIAN
                     </div>
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="buku">Buku Pinjam</label>
-                                <input type="text" class="form-control" id="buku" name="buku" readonly>
+                    <div class="card-body px-4">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="tanggal_pinjam">Tanggal Peminjaman</label>
+                                <input type="text" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" readonly>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="tenggat">Tenggat Tangggal Penggembalian</label>
+                                <input type="text" class="form-control" id="tenggat" name="tenggat" readonly>
                             </div>
                         </div>
-                        <div class="col-lg-2 mt-3">
-                            <!-- Button Detail -->
-                            <button type="button" class="btn mt-3 btn-success text-light btn-block" data-toggle="modal" data-target="#detail_buku">
-                                <i class="fas fa-fw fa-eye"></i>
-                            </button>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="tanggal_kembali">Tanggal Pengembalian</label>
+                                <input type="date" class="form-control  <?= (form_error('tanggal_kembali')) ? 'is-invalid' : '' ?>" id="tanggal_kembali" name="tanggal_kembali">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="total">Total</label>
+                                <input type="text" class="form-control" id="total" name="total" readonly>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="denda">Denda</label>
+                                <input type="text" class="form-control" id="denda" name="denda" readonly>
+                            </div>
                         </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-4 px-3 mt-3">
+                                <h5 class="font-weight-bolder">TOTAL BAYAR</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <textarea class="form-control font-weight-bolder" id="total_bayar" name="total_bayar" rows="1" readonly style="text-align: right !important; font-size: 28px;"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-info mt-5 float-right">Proses Transaksi</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-7">
-            <div class="card">
-                <div class="card-header bg-info font-weight-bolder">
-                    TRANSAKSI PENGEMBALIAN
-                </div>
-                <div class="card-body px-4">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="tanggal_pinjam">Tanggal Peminjaman</label>
-                            <input type="text" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="tenggat">Tenggat Tangggal Penggembalian</label>
-                            <input type="text" class="form-control" id="tenggat" name="tenggat" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="tanggal_kembali">Tanggal Pengembalian</label>
-                            <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="total">Total</label>
-                            <input type="text" class="form-control" id="total" name="total" readonly>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="denda">Denda</label>
-                            <input type="text" class="form-control" id="denda" name="denda" readonly>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-4 px-3 mt-3">
-                            <h5 class="font-weight-bolder">TOTAL BAYAR</h5>
-                        </div>
-                        <div class="col-lg-8">
-                            <textarea class="form-control font-weight-bolder" id="total_bayar" rows="1" readonly style="text-align: right !important; font-size: 28px;"></textarea>
-                        </div>
-                    </div>
-                    <button class="btn btn-info mt-5 float-right">Proses Transaksi</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </form>
 </section>
 
 
@@ -198,7 +200,7 @@
 
 
 <script>
-    $("#nomor_peminjaman").change(function() {
+    $("#nomor_transaksi").change(function() {
         var id = $(this).val();
         var url = "<?= base_url('peminjaman/cari_peminjaman/') ?>";
         $.ajax({
@@ -215,7 +217,7 @@
                 $(".modal-body #pengarang").val(tmp.pengarang);
                 $(".modal-body #tahun_terbit").val(tmp.tahun_terbit);
                 // ANGGOTA
-                // $(".modal-body #kode_anggota").val(tmp.kode_buku);
+                $(".modal-body #kode_anggota").val(tmp.kode_anggota);
                 $(".modal-body #username").val(tmp.username);
                 $(".modal-body #nama_lengkap").val(tmp.nama_lengkap);
                 $(".modal-body #notelp").val(tmp.notelp);
@@ -241,10 +243,13 @@
 
         var difference = tgl2 - tgl1;
         var days = Math.ceil(difference / (1000 * 3600 * 24));
+        if (days <= 0) {
+            days = 0;
+        }
 
-        var totalharga = 10000 * days;
+        var denda = 10000 * days;
 
-        var totalBayar = parseInt(totalharga) + totalharga;
+        var totalBayar = parseInt(total) + denda;
 
         var number_string = totalBayar.toString(),
             sisa = number_string.length % 3,
@@ -256,7 +261,7 @@
             rupiah += separator + ribuan.join('.');
         }
 
-        $("#denda").val(totalharga);
+        $("#denda").val(denda);
         $("#total_bayar").html(rupiah);
     });
 </script>

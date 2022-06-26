@@ -2,6 +2,9 @@
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between ">
             <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
+            <span class="btn-sm btn-info px-4 py-2 border-0 font-weight-bolder">
+                NOMOR TRANSAKSI : <?= $nomor_transaksi ?>
+            </span>
         </div>
     </div>
 </section>
@@ -19,7 +22,7 @@
                             <label for="anggota">Anggota Perpus</label>
                             <select class="form-control text-capitalize selectpicker <?= (form_error('anggota')) ? 'border border-danger' : 'border border-secondary' ?>" id="anggota" name="anggota" data-size="4" data-live-search="true" title="Cari Anggota...">
                                 <?php foreach ($anggota as $row) : ?>
-                                    <option value="<?= $row['id_anggota'] ?>" <?= set_select('anggota', $row['id_anggota'], $row['nama_lengkap']) ?> class="text-capitalize"><?= $row['nama_lengkap'] ?></option>
+                                    <option value="<?= $row['id_anggota'] ?>" <?= set_select('anggota', $row['id_anggota'], '[' . $row['kode_anggota'] . '] ' . $row['nama_lengkap']) ?> class="text-capitalize">[<?= $row['kode_anggota'] ?>] <?= $row['nama_lengkap'] ?></option>
                                 <?php endforeach ?>
                             </select>
                             <?= form_error('anggota', '<small class="form-text text-danger">', '</small>'); ?>
@@ -45,7 +48,7 @@
                             <label for="buku">Buku Perpus</label>
                             <select class="form-control text-capitalize selectpicker <?= (form_error('buku')) ? 'border border-danger' : 'border border-secondary' ?>" id="buku" name="buku" data-size="4" data-live-search="true" title="Cari Buku...">
                                 <?php foreach ($buku as $row) : ?>
-                                    <option value="<?= $row['id_buku'] ?>" <?= set_select('buku', $row['id_buku'], $row['judul_buku']) ?> class="text-capitalize"><?= $row['judul_buku'] ?></option>
+                                    <option value="<?= $row['id_buku'] ?>" <?= set_select('buku', $row['id_buku'], '[' . $row['kode_buku'] . '] ' . $row['judul_buku']) ?> class="text-capitalize">[<?= $row['kode_buku'] ?>] <?= $row['judul_buku'] ?></option>
                                 <?php endforeach ?>
                             </select>
                             <?= form_error('buku', '<small class="form-text text-danger">', '</small>'); ?>
@@ -127,17 +130,7 @@
         var totalharga = 20000 * days;
 
 
-        var number_string = totalharga.toString(),
-            sisa = number_string.length % 3,
-            rupiah = number_string.substr(0, sisa),
-            ribuan = number_string.substr(sisa).match(/\d{3}/g);
-
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        $("#total").val(rupiah);
+        $("#total").val(totalharga);
     });
     $("#anggota").change(function() {
         var id = $(this).val();

@@ -27,7 +27,7 @@
                     <div class="p-5">
                         <div class=" card-body p-0">
 
-                            <h1 class="h4 text-info font-weight-bolder mb-4 mt-3 text-center">REGISTER JAJE BALI</h1>
+                            <h1 class="h4 text-info font-weight-bolder mb-4 mt-3 text-center">REGISTER EDELWEIS</h1>
                             <hr class="garis">
 
                             <form method="POST" action="">
