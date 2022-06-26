@@ -17,7 +17,36 @@ class Auth extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('auth/login', $data);
         } else {
-            $this->_login();
+            $admin = $this->db->get_where('admin', ['username' => $this->input->post('username')])->row_array();
+            if ($admin != NULL) {
+                $this->_login();
+            } else {
+                $this->_login_user();
+            }
+        }
+    }
+
+    private function _login_user()
+    {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $user = $this->db->get_where('anggota', ['username' => $username])->row_array();
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $data = [
+                    'user' => $user['username']
+                ];
+                $this->session->set_userdata($data);
+                $this->session->set_flashdata('pesan', 'Login Aplikasi');
+                redirect('user/dashboard');
+            } else {
+                $this->session->set_flashdata('error', 'Password Salah');
+                redirect('auth/login');
+            }
+        } else {
+            $this->session->set_flashdata('error', 'Username Belum Terdaftar');
+            redirect('auth/login');
         }
     }
 

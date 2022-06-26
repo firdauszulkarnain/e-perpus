@@ -22,6 +22,15 @@ $(document).ready(function() {
         } );
     } ).draw();
 
+    $('#tabelbuku').DataTable({
+        "responsive" : true,
+        "ordering": false,
+        "lengthMenu": [
+            [10, 25, 40],
+            [10, 25, 40]
+        ],
+    });
+
     $('#mytabel tbody').on('click', '.tombol-hapus', function (e) {
         e.preventDefault();
         const form = $(this).parents('form');
