@@ -19,6 +19,13 @@ class Data_Model extends CI_Model
         return $this->db->get('buku bk')->result_array();
     }
 
+    public function ambil_buku_anggota()
+    {
+        $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');
+        $this->db->where('bk.stock !=', 0);
+        return $this->db->get('buku bk')->result_array();
+    }
+
     public function ambil_detail_buku($kode_buku)
     {
         $this->db->join('kategori kt', 'kt.id_kategori = bk.kategori_id');

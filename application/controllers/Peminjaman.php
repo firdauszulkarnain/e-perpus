@@ -17,6 +17,7 @@ class Peminjaman extends CI_Controller
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
         $data['title'] = 'Transaksi Peminjaman Buku';
         $data['anggota'] = $this->db->get('anggota')->result_array();
+        $this->db->where('stock !=', 0);
         $data['buku'] = $this->db->get('buku')->result_array();
         $data['nomor_transaksi'] = $this->Transaksi_Model->nomor_transaksi();
 

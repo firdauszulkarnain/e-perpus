@@ -14,7 +14,7 @@ class User extends CI_Controller
     {
         $data['user'] = $this->db->get_where('anggota', ['username' => $this->session->userdata('user')])->row_array();
         $data['title'] = 'Data Buku Taman Baca Edelweis';
-        $data['buku'] = $this->Data_Model->ambil_buku();
+        $data['buku'] = $this->Data_Model->ambil_buku_anggota();
         $this->template->load('template/user_template', 'user/buku', $data);
     }
 

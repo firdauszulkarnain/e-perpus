@@ -46,8 +46,22 @@ class Transaksi_Model extends CI_Model
 
     public function proses_pengembalian()
     {
+
+
         $pinjam = $this->db->get_where('peminjaman', ['nomor_transaksi' => $this->input->post('nomor_transaksi')])->row_array();
         $id_peminjaman = $pinjam['id_peminjaman'];
+        $id_buku = $pinjam['buku_id'];
+
+        $buku = $this->db->get_where('buku', ['id_buku' => $id_buku])->row_array();
+        $stockBuku = (int)$buku['stock'];
+        $stock = [
+            'stock' => $stockBuku + 1,
+        ];
+
+        $this->db->where('id_buku', $id_buku);
+        $this->db->update('buku', $stock);
+
+
         $data = [
             'id_peminjaman' => $id_peminjaman,
             'subtotal' => $this->input->post('total'),
