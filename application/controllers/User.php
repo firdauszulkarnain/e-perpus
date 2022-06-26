@@ -46,17 +46,17 @@ class User extends CI_Controller
         } else {
             $data = [
                 'nama_lengkap' => $this->input->post('nama_lengkap'),
-                'notelp' => $this->input->post('anggota')
+                'notelp' => $this->input->post('notelp')
             ];
 
             $id_anggota = $this->input->post('id_anggota');
 
             $this->db->where('id_anggota', $id_anggota);
-            $this->db->update('anggota');
+            $this->db->update('anggota', $data);
 
 
-            $$this->session->set_flashdata('pesan', 'Berhasil Register Akun');
-            redirect('auth/login');
+            $this->session->set_flashdata('pesan', 'Berhasil Register Akun');
+            redirect('user/profile');
         }
     }
 }

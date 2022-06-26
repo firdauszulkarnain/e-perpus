@@ -31,11 +31,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nama_lengkap">Nama Lengkap Anggota</label>
-                                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $user['nama_lengkap'] ?>">
+                                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $user['nama_lengkap'] ?>" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label for="notelp">Nomor Telpon Anggota</label>
-                                    <input type="text" class="form-control" id="notelp" name="notelp" value="<?= $user['notelp'] ?>">
+                                    <input type="text" class="form-control" id="notelp" name="notelp" value="<?= $user['notelp'] ?>" required autocomplete="off">
                                 </div>
                             </div>
                         </div>
