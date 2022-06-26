@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-5">
-                            <img src="<?= base_url() ?>assets/img/kartu/kartu.png" alt="" width="80%" class="tengah mt-5">
+                            <img src="<?= base_url() ?>assets/img/profile/default.png" class="img-thumbnail mt-3 tengah" width="90%">
                         </div>
                         <div class="col-lg-7">
                             <div class="form row">
