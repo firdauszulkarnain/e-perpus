@@ -100,8 +100,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label for="total">Total Bayar</label>
-                                    <input type="text" class="form-control" id="total" name="total" readonly>
+                                    <!-- <label for="total">Total Bayar</label> -->
+                                    <input type="hidden" class="form-control" id="total" name="total" readonly>
                                 </div>
                             </div>
                             <div class="col-lg-2"></div>
@@ -119,18 +119,18 @@
 <script>
     $("#tgl_kembali").change(function() {
 
-        var date1 = $("#tgl_pinjam").val();
-        var date2 = $(this).val();
-        var tgl1 = new Date(date1);
-        var tgl2 = new Date(date2);
+        // var date1 = $("#tgl_pinjam").val();
+        // var date2 = $(this).val();
+        // var tgl1 = new Date(date1);
+        // var tgl2 = new Date(date2);
 
-        var difference = tgl2 - tgl1;
-        var days = Math.ceil(difference / (1000 * 3600 * 24));
+        // var difference = tgl2 - tgl1;
+        // var days = Math.ceil(difference / (1000 * 3600 * 24));
 
-        var totalharga = 20000 * days;
+        // var totalharga = 20000 * days;
 
 
-        $("#total").val(totalharga);
+        $("#total").val(0);
     });
     $("#anggota").change(function() {
         var id = $(this).val();
